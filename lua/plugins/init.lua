@@ -5,6 +5,7 @@
 return {
   {
     "stevearc/conform.nvim",
+    lazy = false,
     event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
@@ -18,6 +19,7 @@ return {
 
   {
     "stevearc/oil.nvim",
+    lazy = false,
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
