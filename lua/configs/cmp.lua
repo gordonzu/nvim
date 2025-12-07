@@ -1,5 +1,5 @@
--- Minimal nvim-cmp adjustments to ensure the LSP source is used and the documentation window is shown.
--- Place this file where your NVChad setup sources cmp config (e.g. lua/configs/cmp.lua or adjust to your layout).
+-- cmp.lua configuration for cmp.nvim
+--
 
 local ok, cmp = pcall(require, "cmp")
 if not ok then
@@ -7,18 +7,18 @@ if not ok then
   return
 end
 
-cmp.setup({
+cmp.setup {
   window = {
     documentation = cmp.config.window.bordered(), -- show bordered doc window
   },
   experimental = {
     ghost_text = false,
   },
-  sources = cmp.config.sources({
+  sources = cmp.config.sources {
     { name = "nvim_lsp" }, -- ensure LSP completions are available (and preferred)
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-  }),
+  },
   -- you can adjust formatting or mapping here if desired
-})
+}
