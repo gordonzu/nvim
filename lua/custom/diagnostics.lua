@@ -5,8 +5,8 @@ local M = {}
 
 function M.setup()
   vim.diagnostic.config {
-    virtual_text = false,
-    virtual_lines = true,
+    virtual_text = true,
+    virtual_lines = false,
     signs = true,
     underline = true,
     float = { border = "rounded" },
