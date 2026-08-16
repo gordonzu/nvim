@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
 
-  theme = "everforest_light",
+  theme = "dark_horizon",
 
   hl_override = {
     Type = { bold = true, italic = false },
