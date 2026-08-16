@@ -2,6 +2,16 @@ require "nvchad.options"
 
 -- add yours here!
 
+-- Global map wrapper: allows passing a string as the 4th argument for the desc
+_G.map = function(mode, lhs, rhs, opts)
+  if type(opts) == "string" then
+    opts = { desc = opts }
+  elseif opts == nil then
+    opts = {}
+  end
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
+
 vim.opt.relativenumber = true
 
 -- Number of lines to keep above and below the cursor
