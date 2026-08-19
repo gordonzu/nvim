@@ -31,7 +31,7 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "autocmds"
 
-require("custom-config.ramboe-utils")
+-- require("custom-config.ramboe-utils")
 
 vim.schedule(function()
   require "mappings"
