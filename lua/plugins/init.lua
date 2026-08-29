@@ -24,8 +24,18 @@ return {
       "html",
       "css",
       "go",
+      "bash",
       },
     },
+
+    config = function(_, opts)
+      --require("nvim-treesitter.configs").setup(opts)
+
+      vim.treesitter.language.register("bash", "conf")
+      vim.treesitter.language.register("bash", "kitty")
+      vim.treesitter.language.register("bash", "tmux")
+      vim.treesitter.language.register("bash", "sh")
+    end,
   },
 
   {
@@ -81,26 +91,6 @@ return {
     event = "VeryLazy",
     priority = 1000,
     config = function() require("configs.tiny-inline-diagnostic") end
-    --[[ 
-    opts = {
-      signs = {
-        left = "",
-        right = "",
-        diag = "●",
-        arrow = "    ",
-        up_arrow = "    ",
-        vertical = " │",
-        vertical_end = " └",
-      },
-      blend = {
-        factor = 0.22,
-      },
-    },
-
-    config = function()
-      vim.diagnostic.config({ virtual_text = false })
-    end
-    ]]
   },
 
 

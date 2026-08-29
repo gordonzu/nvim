@@ -1,7 +1,11 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "gopls", }
 vim.lsp.enable(servers)
+
+vim.lsp.config("gopls", {})
+vim.lsp.config("html", {})
+vim.lsp.config("cssls", {})
 
 vim.diagnostic.config(
   {
