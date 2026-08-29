@@ -1,6 +1,5 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
-vim.g.nvchad_ui_confirm = false
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -13,6 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
+
+lazy_config.change_detection = {
+  enabled = false,
+  notify = false,
+}
 
 -- load plugins
 require("lazy").setup({

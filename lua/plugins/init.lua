@@ -14,7 +14,6 @@ return {
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
-
   {
   	"nvim-treesitter/nvim-treesitter",
     opts = {
@@ -23,7 +22,8 @@ return {
       "lua",
       "vimdoc",
       "html",
-      "css"
+      "css",
+      "go",
       },
     },
   },
@@ -76,6 +76,32 @@ return {
     end,
   },
 
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
+    config = function() require("configs.tiny-inline-diagnostic") end
+    --[[ 
+    opts = {
+      signs = {
+        left = "",
+        right = "",
+        diag = "●",
+        arrow = "    ",
+        up_arrow = "    ",
+        vertical = " │",
+        vertical_end = " └",
+      },
+      blend = {
+        factor = 0.22,
+      },
+    },
+
+    config = function()
+      vim.diagnostic.config({ virtual_text = false })
+    end
+    ]]
+  },
 
 
 }

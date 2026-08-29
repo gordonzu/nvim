@@ -5,6 +5,10 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.ui = {
+  confirm = false,
+}
+
 M.base46 = {
 	theme = "onedark",
 
