@@ -1,11 +1,22 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "gopls", }
+local servers = { "html-lsp",
+                  "css-lsp",
+                  "gopls",
+                  "clangd",
+                  "pyright",
+                  "cmake-language-server",
+                  "bash-language-server" }
+
 vim.lsp.enable(servers)
 
 vim.lsp.config("gopls", {})
-vim.lsp.config("html", {})
-vim.lsp.config("cssls", {})
+vim.lsp.config("clangd", {})
+vim.lsp.config("pyright", {})
+vim.lsp.config("cmake-language-server", {})
+vim.lsp.config("bash-language-server", {})
+vim.lsp.config("html-lsp", {})
+vim.lsp.config("css-lsp", {})
 
 vim.diagnostic.config(
   {
