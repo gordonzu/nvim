@@ -1,9 +1,9 @@
-require("nvchad.configs.lspconfig").defaults()
 
 local servers = { "html-lsp",
                   "css-lsp",
                   "gopls",
                   "clangd",
+                  "elixirls",
                   "pyright",
                   "cmake-language-server",
                   "bash-language-server" }
@@ -28,6 +28,11 @@ vim.lsp.config("clangd", {
   },
 })
 
+vim.lsp.config("elixirls", {
+  cmd = { "/home/gordonyx/.local/bin/elixir-ls/release/language_server.sh" },
+  root_markers = { "mix.exs", ".git" },
+})
+
 vim.lsp.enable(servers)
 
 vim.diagnostic.config(
@@ -47,4 +52,3 @@ vim.diagnostic.config(
   }
 )
 
--- read :h vim.lsp.config for changing options of lsp servers 
