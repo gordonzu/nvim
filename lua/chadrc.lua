@@ -7,10 +7,13 @@ local M = {}
 
 M.ui = {
   confirm = false,
+  tabufline = {
+    enabled = false,
+  },
 }
 
 M.base46 = {
-	theme = "ashes",
+	theme = "blossom_light",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
