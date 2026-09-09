@@ -13,7 +13,7 @@ M.ui = {
 }
 
 M.base46 = {
-	theme = "blossom_light",
+	theme = "tokyonight",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
