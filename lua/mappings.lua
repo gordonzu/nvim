@@ -17,3 +17,34 @@ map("n", "<leader>[", ":bn<CR>", { desc = "next buffer" })
 map("n", "<leader>]", ":bp<CR>", { desc = "previous buffer" })
 map("i", "jk", "<ESC>")
 map("n", "-", "<CMD>Oil --float<CR>")
+
+map("n", "<leader>cr", "<cmd>LspReload<cr>", { desc = "Close and reopen buffer(lsp reload)" })
+
+vim.keymap.set("n", "<leader>cb", function()
+  -- Delete .pcm files
+  vim.system({ "find", "build", "-name", "*.pcm", "-delete" })
+  
+  -- Rebuild
+  vim.system(
+    { "bash", "./watch" },
+    { text = true, cwd = vim.fn.getcwd() },
+    function(result)
+      vim.schedule(function()
+        if result.code == 0 then
+          -- Kill clangd
+          vim.system({ "pkill", "-9", "clangd" })
+          vim.uv.sleep(500)
+          
+          -- Reload current buffer
+          local bufnr = vim.api.nvim_get_current_buf()
+          vim.cmd("bdelete")
+          vim.cmd("edit #" .. bufnr)
+          
+          vim.notify("Build complete and buffer reloaded", vim.log.levels.INFO)
+        else
+          vim.notify("Build failed: " .. (result.stderr or "unknown error"), vim.log.levels.ERROR)
+        end
+      end)
+    end
+  )
+end, { desc = "Build, restart clangd, and reload buffer" })
