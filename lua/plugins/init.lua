@@ -19,8 +19,6 @@ return {
     end,
   },
 
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
   {
   	"nvim-treesitter/nvim-treesitter",
     opts = {
@@ -35,6 +33,7 @@ return {
       "elixir",
       "heex",
       "eex",
+      "java",
       },
       highlight = {
         enable = true,
@@ -105,6 +104,24 @@ return {
     priority = 1000,
     config = function() require("configs.tiny-inline-diagnostic") end
   },
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

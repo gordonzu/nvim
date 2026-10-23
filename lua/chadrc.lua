@@ -13,7 +13,7 @@ M.ui = {
 }
 
 M.base46 = {
-	theme = "dark_horizon",
+	theme = "chadtain",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
